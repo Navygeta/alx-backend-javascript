@@ -1,7 +1,12 @@
-function cleanSet(set, startString) {
-  const values = Array.from(set);
-  const filteredValues = values.filter((value) => value.startsWith(startString));
-  return filteredValues.map((value) => value.substring(startString.length)).join('-');
+export default function cleanSet(set, startString) {
+  if (startString.length === 0 || startString === undefined) {
+    return '';
+  }
+  return [...set]
+    .filter((el) => el !== undefined ? el.startsWith(startString) : '')
+    .map((ele) => ele !== undefined ? ele.slice(startString.length) : '')
+    .join('-');
 }
 
-export default cleanSet;
+console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']), 'bon'));
+console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']), ''));
