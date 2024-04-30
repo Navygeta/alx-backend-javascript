@@ -1,4 +1,4 @@
-export default function cleanSet(set, startString) {
+function cleanSet(set, startString) {
   if (startString.length === 0 || startString === undefined) {
     return '';
   }
@@ -8,5 +8,4 @@ export default function cleanSet(set, startString) {
     .join('-');
 }
 
-console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']), 'bon'));
-console.log(cleanSet(new Set(['bonjovi', 'bonaparte', 'bonappetit', 'banana']), ''));
+module.exports = cleanSet;
